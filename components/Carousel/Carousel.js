@@ -11,21 +11,26 @@ class Carousel {
         
     }
     scrollLeft(){
-        this.images[this.currentIndex].style.display = 'none'
+        TweenMax.to(this.images[this.currentIndex], 0.5, {opacity:0})
+        TweenMax.to(this.images[this.currentIndex], 0, {display:'none', delay:0.5})
         if (this.currentIndex === 0){this.currentIndex = 3}
         else {
             this.currentIndex -= 1
         }
-        this.images[this.currentIndex].style.display = 'block'
+        TweenMax.to(this.images[this.currentIndex], 0, {display:'block',opacity:0, delay:0.5})
+        TweenMax.to(this.images[this.currentIndex], 1, {opacity:1, delay:0.5})
+
     }
 
     scrollRight(){
-        this.images[this.currentIndex].style.display = 'none'
+        TweenMax.to(this.images[this.currentIndex], 0.5, {opacity:0})
+        TweenMax.to(this.images[this.currentIndex], 0, {display:'none', delay:0.5})
         if (this.images.length-1 === this.currentIndex){this.currentIndex = 0}
         else {
             this.currentIndex += 1
         }
-        this.images[this.currentIndex].style.display = 'block'
+        TweenMax.to(this.images[this.currentIndex], 0, {display:'block',opacity:0, delay:0.5})
+        TweenMax.to(this.images[this.currentIndex], 1, {opacity:1, delay:0.5})
     }
 }
 
